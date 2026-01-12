@@ -41,11 +41,51 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => rtrim(env('APP_URL'), '/').'/storage',
+            'url' => rtrim(env('APP_URL'), '/') . '/storage',
             'visibility' => 'public',
             'throw' => false,
             'report' => false,
         ],
+        // 'chat_media' => [
+        //     'driver' => 'local',
+        //     'root' => storage_path('app/private/chat'),
+        //     'visibility' => 'private', //  خاص
+        //     'throw' => false,
+        // ],
+
+        'chat_images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/chat/images'),
+            'url' => env('APP_URL').'/storage/chat/images',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'chat_videos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/chat/videos'),
+            'url' => env('APP_URL').'/storage/chat/videos',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'chat_documents' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/chat/documents'),
+            'url' => env('APP_URL').'/storage/chat/documents',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+        'chat_audio' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/chat/audio'),
+            'url' => env('APP_URL').'/storage/chat/audio',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
+
 
         's3' => [
             'driver' => 's3',

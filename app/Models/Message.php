@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\MessageAttachment;
 use Illuminate\Database\Eloquent\Model;
 
 class Message extends Model
@@ -13,4 +14,10 @@ class Message extends Model
         'message',
     ];
 
+
+
+    public function attachments()
+    {
+        return $this->hasMany(MessageAttachment::class);
+    }
 }
