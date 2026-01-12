@@ -65,7 +65,6 @@ class ChatFileController extends Controller
             $file = $request->file('file');
             $message = Message::findOrFail($request->message_id);
 
-            تحقق من الصلاحيات
             if ($message->sender_id !== Auth::id()) {
                 return response()->json([
                     'success' => false,
@@ -139,8 +138,6 @@ class ChatFileController extends Controller
     {
         try {
             $attachment = MessageAttachment::findOrFail($attachmentId);
-
-            تحقق من الصلاحيات
             if ($attachment->message->sender_id !== Auth::id()) {
                 return response()->json([
                     'success' => false,
