@@ -10,8 +10,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::middleware(['auth:sanctum'])->prefix('chat')->name('chat.')->group(function () {
-// Route::prefix('chat')->name('chat.')->group(function () {
+// Route::middleware(['auth:sanctum'])->prefix('chat')->name('chat.')->group(function () {
+Route::prefix('chat')->name('chat.')->group(function () {
 
     // 📤 رفع الملفات (Upload)
     Route::prefix('upload')->name('upload.')->group(function () {

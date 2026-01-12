@@ -65,12 +65,12 @@ class ChatFileController extends Controller
             $file = $request->file('file');
             $message = Message::findOrFail($request->message_id);
 
-            if ($message->sender_id !== Auth::id()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Unauthorized',
-                ], 403);
-            }
+            // if ($message->sender_id !== Auth::id()) {
+            //     return response()->json([
+            //         'success' => false,
+            //         'message' => 'Unauthorized',
+            //     ], 403);
+            // }
 
             // رفع الملف باستخدام الـ Service
             $attachment = $this->fileService->uploadFile($file, $message, $fileType);
