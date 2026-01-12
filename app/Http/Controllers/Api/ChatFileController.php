@@ -98,41 +98,41 @@ class ChatFileController extends Controller
     }
 
 
-    public function downloadFile($attachmentId)
-    {
-        try {
-            $attachment = MessageAttachment::findOrFail($attachmentId);
+    // public function downloadFile($attachmentId)
+    // {
+    //     try {
+    //         $attachment = MessageAttachment::findOrFail($attachmentId);
 
 
-            $message = $attachment->message;
-            if ($message->sender_id !== Auth::id() && $message->receiver_id !== Auth::id()) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Unauthorized',
-                ], 403);
-            }
+    //         $message = $attachment->message;
+    //         if ($message->sender_id !== Auth::id() && $message->receiver_id !== Auth::id()) {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'message' => 'Unauthorized',
+    //             ], 403);
+    //         }
 
 
-            if (!$this->fileService->fileExists($attachment)) {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'File not found',
-                ], 404);
-            }
+    //         if (!$this->fileService->fileExists($attachment)) {
+    //             return response()->json([
+    //                 'success' => false,
+    //                 'message' => 'File not found',
+    //             ], 404);
+    //         }
 
 
-            return response()->download(
-                $this->fileService->getFilePath($attachment),
-                $attachment->file_name
-            );
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to download file',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
-    }
+    //         return response()->download(
+    //             $this->fileService->getFilePath($attachment),
+    //             $attachment->file_name
+    //         );
+    //     } catch (\Exception $e) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Failed to download file',
+    //             'error' => $e->getMessage(),
+    //         ], 500);
+    //     }
+    // }
 
 
     public function deleteFile($attachmentId)

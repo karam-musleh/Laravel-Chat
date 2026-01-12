@@ -21,7 +21,7 @@ Route::middleware(['auth:sanctum'])->prefix('chat')->name('chat.')->group(functi
         Route::post('/document', [ChatFileController::class, 'uploadDocument'])->name('document');
     });
 
-    Route::get('/download/{attachmentId}', [ChatFileController::class, 'downloadFile'])->name('download');
+    // Route::get('/download/{attachmentId}', [ChatFileController::class, 'downloadFile'])->name('download');
 
     // 🗑️ حذف ملف (Delete)
     Route::delete('/file/{attachmentId}', [ChatFileController::class, 'deleteFile'])->name('file.delete');
